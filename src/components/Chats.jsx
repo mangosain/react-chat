@@ -32,6 +32,7 @@ export default function Chats() {
       didMountRef.current = true;
 
       if (!user || user === null) {
+        alert("no user");
         history.push("/");
         return;
       }
@@ -70,12 +71,13 @@ export default function Chats() {
     }
   }, [user, history]);
 
-  if (!user || loading)
+  if (!user || loading) {
     return (
       <div className="loading">
         <h1>Loading...</h1>
       </div>
     );
+  }
 
   return (
     <div className="chats-page">
